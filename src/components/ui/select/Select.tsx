@@ -19,11 +19,11 @@ export function Select<K>({
         className={
           isMobile
             ? "flex items-center gap-x-2 text-zinc-500 text-[12px] font-medium"
-            : "w-full bg-zinc-100 border border-slate-300 rounded-md shadow-sm px-3 py-2 sm:px-4 sm:py-2 font-medium text-zinc-600 hover:bg-slate-200 text-left z-10 truncate"
+            : "w-full flex items-center gap-x-2 bg-zinc-100 border border-slate-300 rounded-md shadow-sm px-3 py-2 sm:px-4 sm:py-2 font-medium text-zinc-600 hover:bg-slate-200 text-left z-10 truncate"
         }
       >
         {title && <span className="text-zinc-500">{title}:</span>}
-        <span className="truncate max-w-[40px] block">
+        <span className={isMobile ? "truncate max-w-[40px] block" : ""}>
           {value?.label || "Выбрать"}
         </span>
         <ChevronDown size={16} strokeWidth={2} className="text-zinc-400" />

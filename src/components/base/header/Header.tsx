@@ -6,8 +6,8 @@ import SlideHeaderMenuWrapper from "./slide-menu/SlideMenuWrapper";
 
 const Header = () => {
   return (
-    <header className="border border-b border-zinc-100">
-      <div className="h-20 px-4 flex items-center justify-between">
+    <header className="border border-b border-zinc-100 sticky top-0 z-30">
+      <div className="h-20 px-4 flex items-center justify-between bg-white/95 backdrop-blur-lg">
         <Link href={"/"}>
           <Image
             src={"/logo-full.svg"}

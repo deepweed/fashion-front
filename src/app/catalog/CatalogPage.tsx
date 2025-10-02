@@ -1,6 +1,8 @@
 "use client";
 
 import CatalogItems from "@/components/catalog/catalog-items/CatalogItems";
+import Filters from "@/components/catalog/filters/Filters";
+import { SearchField } from "@/components/catalog/filters/search-field/SearchField";
 import Pagination from "@/components/catalog/pagination/Pagination";
 import SlideFiltersWrapper from "@/components/catalog/slide-filters-menu/SlideFiltersWrapper";
 import SortDropdown from "@/components/catalog/sort/SortDropdown";
@@ -27,16 +29,27 @@ export const CatalogPage: FC<ICatalogPage> = ({ defaultProducts }) => {
   return (
     <>
       <Heading className="mb-10">Каталог сплит-систем и кондиционеров</Heading>
-      <div className="w-full h-10 border-b border-zinc-200">
-        <div className="flex items-center justify-between mb-5 px-4">
+      <div className="w-full h-10 bg-white border-b border-zinc-200 mb-5 lg:hidden">
+        <div className="flex items-center justify-between px-4">
           <SlideFiltersWrapper />
-          <SortDropdown />
+          <SortDropdown isMobile={true} />
         </div>
       </div>
-      <div className="flex gap-6">
-        <aside className="hidden lg:block w-64 px-2">Hello</aside>
+      <div className="lg:hidden">
+        <SearchField />
+      </div>
+      <div></div>
+      <div className="flex gap-x-2">
+        <aside className="hidden lg:block w-74 px-2">
+          <Filters />
+        </aside>
 
         <section className="flex-1">
+          <div className="hidden lg:flex justify-end w-full mb-3">
+            <div className="w-80">
+              <SortDropdown isMobile={false} />
+            </div>
+          </div>
           <CatalogItems
             products={data.products}
             isLoading={isPending || isFetching || isRefetching || isLoading}
