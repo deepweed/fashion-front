@@ -1,3 +1,14 @@
+export enum EnergyEfficiency {
+  A123 = "A+++",
+  A12 = "A++",
+  A1 = "A+",
+  A = "A",
+  B = "B",
+  C = "C",
+  D = "D",
+  E = "E",
+}
+
 export interface IAirConditionerStat {
   id: number;
   productId: number;
@@ -5,7 +16,7 @@ export interface IAirConditionerStat {
   coolingCapacity: number;
   heatingCapacity: number;
   areaCoverage: number;
-  energyEfficiency: string;
+  energyEfficiency: EnergyEfficiency;
 
   noiseLevelIndoor: number;
   noiseLevelOutdoor: number;

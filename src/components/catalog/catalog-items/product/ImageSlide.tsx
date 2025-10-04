@@ -35,7 +35,7 @@ export function ImageSlide({ product }: { product: IProduct }) {
         {product.images.map((_, i) => (
           <span
             key={i}
-            className={`h-1 w-1 rounded-full transition-colors duration-200 ${
+            className={`h-2 w-2 rounded-full transition-colors duration-200 ${
               i === activeIndex ? "bg-blue-600" : "bg-gray-300"
             }`}
           />

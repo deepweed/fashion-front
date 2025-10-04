@@ -6,6 +6,10 @@ const initialQueryParams: Pick<IStore, "queryParams"> = {
     search: "",
     page: 1,
     perPage: 10,
+    minCoolingC: undefined,
+    maxCoolingC: undefined,
+    minHeatingC: undefined,
+    maxHeatingC: undefined,
   },
 };
 

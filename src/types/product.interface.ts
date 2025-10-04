@@ -52,7 +52,7 @@ export enum Type {
 }
 
 export enum TypeOf {
-  WALL_MOUNTED_AIR = "WALL_CEILING_CONDITIONER", // Настенные кондиционеры
+  WALL_MOUNTED_AIR = "WALL_MOUNTED_AIR", // Настенные кондиционеры
   CASSETE_CONDITIONER = "CASSETE_CONDITIONER", // Кассетные кондиционеры
   DUCTED_CONDITIONER = "DUCTED_CONDITIONER", // Канальные кондиционеры
   WALL_CEILING_CONDITIONER = "WALL_CEILING_CONDITIONER", // Настенно потолочные

@@ -19,6 +19,7 @@ interface ICatalogPage {
 
 export const CatalogPage: FC<ICatalogPage> = ({ defaultProducts }) => {
   const { queryParams, isFilterUpdated, updateQueryParams } = useFilters();
+
   const { data, isPending, isFetching, isLoading, isRefetching } = useQuery({
     queryKey: ["catalog", queryParams],
     queryFn: () => ProductService.findAll(queryParams),

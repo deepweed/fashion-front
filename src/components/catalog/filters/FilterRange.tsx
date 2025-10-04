@@ -1,9 +1,9 @@
 "use client";
 
+import { useDebounce } from "@/hooks/useDebounce";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { type FC, useEffect, useState } from "react";
-import { useDebounce } from "@/hooks/useDebounce";
 
 interface IRange {
   min?: number;
@@ -12,15 +12,17 @@ interface IRange {
   toInitialValue?: number;
   onChangeFromValue: (value: number) => void;
   onChangeToValue: (value: number) => void;
+  counData?: string;
 }
 
-const Range: FC<IRange> = ({
+const FilterRange: FC<IRange> = ({
   min = 0,
   max,
   onChangeFromValue,
   onChangeToValue,
   fromInitialValue = 0,
   toInitialValue = max,
+  counData,
 }) => {
   const [fromValue, setFromValue] = useState(fromInitialValue);
   const [toValue, setToValue] = useState(toInitialValue);
@@ -48,25 +50,8 @@ const Range: FC<IRange> = ({
 
   return (
     <div className="w-full px-2">
-      {/* Верхняя панель с "инпутами" */}
-      <div className="flex items-center justify-between ">
-        <div className="flex items-center justify-between gap-x-3 mb-3 w-full">
-          <span className="flex items-center justify-between w-full h-10 border border-zinc-200 rounded-lg font-medium text-[0.8rem] px-2">
-            <span className="text-gray-400 select-none">от</span>
-            {fromValue.toLocaleString()} ₽
-          </span>
-          <span className="text-gray-400 font-semibold">-</span>
-          <span className="flex items-center justify-between w-full h-10 border border-zinc-200 rounded-lg font-medium text-[0.8rem] px-2">
-            <span className="text-gray-400 select-none">до</span>
-            {toValue.toLocaleString()} ₽
-          </span>
-        </div>
-      </div>
-
-      {/* Слайдер */}
       <Slider
         range
-        step={1000}
         min={min}
         max={max}
         value={[fromValue, toValue]}
@@ -94,8 +79,18 @@ const Range: FC<IRange> = ({
           },
         }}
       />
+      <div className="flex justify-between text-sm text-slate-400 mt-2">
+        <span>
+          От {fromInitialValue}
+          {counData}
+        </span>
+        <span>
+          До {toInitialValue}
+          {counData}
+        </span>
+      </div>
     </div>
   );
 };
 
-export default Range;
+export default FilterRange;

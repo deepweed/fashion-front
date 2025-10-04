@@ -1,11 +1,12 @@
 import type { Brands, Stock, TypeOf } from "@/types/product.interface";
+import type { EnergyEfficiency } from "@/types/stat.interface";
 
 export const PRODUCTS = "products";
 
 export type TypeProductFilters = {
   sort?: EnumProductSort;
   search?: string;
-  serie?: string;
+  serie?: string; // Serie?, refr type
   minPrice?: string;
   maxPrice?: string;
   stock?: Stock;
@@ -20,7 +21,7 @@ export type TypeProductFilters = {
   maxHeatingC?: string;
   minArea?: string;
   maxArea?: string;
-  energyEfficiency?: string;
+  energyEfficiency?: EnergyEfficiency;
   refrigerantType?: string;
 
   page?: string | number;

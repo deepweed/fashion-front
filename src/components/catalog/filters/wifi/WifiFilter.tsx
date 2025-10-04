@@ -16,7 +16,7 @@ export function WifiFilter() {
             updateQueryParams("wifi", "true");
           }
         }}
-        className={`relative inline-flex items-center h-7 rounded-full w-14 focus:outline-none ${
+        className={`relative inline-flex items-center h-7 rounded-full w-13 focus:outline-none cursor-pointer ${
           isWifi ? "bg-blue-500" : "bg-zinc-300"
         }`}
       >

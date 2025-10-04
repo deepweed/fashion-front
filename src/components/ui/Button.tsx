@@ -19,7 +19,7 @@ const Button = ({
   disabled = false,
 }: ButtonProps) => {
   const baseStyles =
-    "disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium px-8 cursor-pointer transition-colors";
+    "disabled:cursor-not-allowed inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium cursor-pointer transition-colors";
 
   const colorStyles = {
     blue: "bg-blue-600 text-white hover:bg-blue-700",

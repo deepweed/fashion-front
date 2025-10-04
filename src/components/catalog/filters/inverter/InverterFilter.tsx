@@ -17,7 +17,7 @@ export function InverterFilter() {
             updateQueryParams("inverter", "true");
           }
         }}
-        className={`relative inline-flex items-center h-7 rounded-full w-14 focus:outline-none ${
+        className={`relative inline-flex items-center h-7 rounded-full w-13 focus:outline-none cursor-pointer ${
           isInverter ? "bg-blue-500" : "bg-zinc-300"
         }`}
       >
