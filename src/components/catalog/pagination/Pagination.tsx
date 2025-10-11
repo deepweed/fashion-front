@@ -13,7 +13,7 @@ const Pagination: FC<IPagination> = ({
   currentPage = 1,
 }) => {
   return (
-    <div className="text-center mt-16">
+    <div className="text-center mt-10">
       {Array.from({
         length: numberPages > 1 ? Math.ceil(numberPages) : 1,
       }).map((_, index) => {
@@ -22,10 +22,9 @@ const Pagination: FC<IPagination> = ({
         return (
           <Button
             key={pageNumber}
-            size="sm"
-            variant={currentPage === pageNumber ? "outline" : "primary"}
+            color="gray"
             onClick={() => changePage(pageNumber)}
-            className="mx-2.5"
+            className="px-5 py-3 rounded-full text-zinc-600"
             disabled={currentPage === pageNumber}
           >
             {pageNumber}

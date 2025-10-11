@@ -4,6 +4,7 @@ import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { type FC, useEffect, useState } from "react";
 import { useDebounce } from "@/hooks/useDebounce";
+import Input from "./Input";
 
 interface IRange {
   min?: number;
@@ -47,53 +48,52 @@ const Range: FC<IRange> = ({
   }, [debouncedToValue]);
 
   return (
-    <div className="w-full px-2">
-      {/* Верхняя панель с "инпутами" */}
-      <div className="flex items-center justify-between ">
-        <div className="flex items-center justify-between gap-x-3 mb-3 w-full">
-          <span className="flex items-center justify-between w-full h-10 border border-zinc-200 rounded-lg font-medium text-[0.8rem] px-2">
-            <span className="text-gray-400 select-none">от</span>
-            {fromValue.toLocaleString()} ₽
-          </span>
-          <span className="text-gray-400 font-semibold">-</span>
-          <span className="flex items-center justify-between w-full h-10 border border-zinc-200 rounded-lg font-medium text-[0.8rem] px-2">
-            <span className="text-gray-400 select-none">до</span>
-            {toValue.toLocaleString()} ₽
-          </span>
-        </div>
+    <div className="w-full">
+      <div className="flex items-center justify-between gap-x-4 mb-4">
+        <Input
+          type="number"
+          className="w-1/2 h-10 bg-white border border-zinc-200 rounded-xl"
+          placeholder="От, ₽"
+        />
+        <Input
+          type="number"
+          className="w-1/2 h-10 bg-white border border-zinc-200 rounded-xl"
+          placeholder="До, ₽"
+        />
       </div>
 
-      {/* Слайдер */}
-      <Slider
-        range
-        step={1000}
-        min={min}
-        max={max}
-        value={[fromValue, toValue]}
-        onChange={(value) => {
-          if (typeof value === "object") {
-            setFromValue(value[0]);
-            setToValue(value[1]);
-          }
-        }}
-        styles={{
-          track: {
-            backgroundColor: "#2563eb", // синий трек
-            height: 4,
-          },
-          rail: {
-            backgroundColor: "#d1d5db", // серый фон
-            height: 4,
-          },
-          handle: {
-            borderColor: "#2563eb",
-            backgroundColor: "#fffff",
-            width: 16,
-            height: 16,
-            boxShadow: "0 0 0 2px #2563eb33", // лёгкая подсветка вокруг
-          },
-        }}
-      />
+      <div className="px-2">
+        <Slider
+          range
+          step={1000}
+          min={min}
+          max={max}
+          value={[fromValue, toValue]}
+          onChange={(value) => {
+            if (typeof value === "object") {
+              setFromValue(value[0]);
+              setToValue(value[1]);
+            }
+          }}
+          styles={{
+            track: {
+              backgroundColor: "#2563eb", // синий трек
+              height: 4,
+            },
+            rail: {
+              backgroundColor: "#d1d5db", // серый фон
+              height: 4,
+            },
+            handle: {
+              borderColor: "#2563eb",
+              backgroundColor: "#fffff",
+              width: 16,
+              height: 16,
+              boxShadow: "0 0 0 2px #2563eb33", // лёгкая подсветка вокруг
+            },
+          }}
+        />
+      </div>
     </div>
   );
 };

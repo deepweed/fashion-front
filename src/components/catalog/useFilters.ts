@@ -19,12 +19,10 @@ export function useFilters() {
     });
   }, []);
 
-  console.log("params: ", queryParams);
-
   const updateQueryParams = (key: keyof TypeProductFilters, value: string) => {
     const newParams = new URLSearchParams(searchParams.toString());
 
-    if (value) {
+    if (value !== "") {
       newParams.set(key, String(value));
     } else {
       newParams.delete(key);

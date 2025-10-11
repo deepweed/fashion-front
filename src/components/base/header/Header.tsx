@@ -2,19 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ChevronDown,
-  GraduationCap,
+  Grip,
   Phone,
+  PhoneCall,
   ShoppingBasket,
   ShoppingCart,
 } from "lucide-react";
 import SlideHeaderMenuWrapper from "./slide-menu/SlideMenuWrapper";
-import Button from "@/components/ui/Button";
 import { HEADER_LINKS } from "./header.data";
+import Button from "@/components/ui/Button";
 
 const Header = () => {
   return (
     <header className="border border-b border-zinc-100 sticky top-0 z-30">
-      <div className="h-20 px-4 flex items-center justify-between 2xl:px-0 2xl:max-w-[1440px] 2xl:mx-auto bg-white/95 backdrop-blur-lg">
+      <div className="h-20 px-4 flex items-center justify-between 2xl:px-0 2xl:max-w-[1640px] 2xl:mx-auto bg-white/95 backdrop-blur-lg">
         <div className="flex items-center gap-x-20">
           <Link href={"/"}>
             <Image
@@ -37,28 +38,17 @@ const Header = () => {
           </nav>
         </div>
         <div className="hidden lg:flex lg:items-center lg:gap-x-10">
-          <Link
-            className="flex items-center gap-x-2 text-blue-700"
-            href={"/cart"}
-          >
+          <Link className="flex items-center gap-x-3" href={"/cart"}>
             <ShoppingBasket size={16} strokeWidth={2.5} />
-            <span className="text-sm font-medium">Корзина</span>
+            <span className="text-sm font-semibold">КОРЗИНА</span>
           </Link>
-          <div className="flex items-center gap-x-2">
-            {/* TODO: вынести, при наведении выпадающее меню со ссылками */}
-            <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center border-4 border-double border-white">
-              <GraduationCap
-                className="text-white"
-                size={16}
-                strokeWidth={2.5}
-              />
-            </div>
-            <ChevronDown
-              className="text-blue-600"
-              size={16}
-              strokeWidth={2.5}
-            />
-          </div>
+          <Button
+            color="white"
+            className="px-4 h-10 rounded-2xl border border-zinc-200"
+          >
+            <Phone size={14} strokeWidth={2.4} />
+            Обратный звонок
+          </Button>
         </div>
         <div className="flex items-center gap-x-6 lg:hidden">
           <ShoppingCart size={20} strokeWidth={2.1} />

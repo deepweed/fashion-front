@@ -17,8 +17,8 @@ export function ResetButton() {
 
   return (
     <Button
-      color="gray"
-      className="mt-5 h-10 rounded-lg"
+      color="white"
+      className="mt-5 h-12 rounded-2xl border border-zinc-100"
       onClick={resetHandler}
     >
       <RefreshCcw size={16} />

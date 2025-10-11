@@ -6,16 +6,13 @@ const initialQueryParams: Pick<IStore, "queryParams"> = {
     search: "",
     page: 1,
     perPage: 10,
-    minCoolingC: undefined,
-    maxCoolingC: undefined,
-    minHeatingC: undefined,
-    maxHeatingC: undefined,
   },
 };
 
-const useFiltersStore = create<IStore>((set) => ({
+const useFiltersStore = create<IStore & { resetVersion: number }>((set) => ({
   ...initialQueryParams,
   isFilterUpdated: false,
+  resetVersion: 0,
 
   updateQueryParam: ({ key, value }) =>
     set((state) => ({
@@ -23,7 +20,12 @@ const useFiltersStore = create<IStore>((set) => ({
       isFilterUpdated: true,
     })),
 
-  reset: () => set(() => ({ ...initialQueryParams, isFilterUpdated: true })),
+  reset: () =>
+    set(() => ({
+      ...initialQueryParams,
+      isFilterUpdated: true,
+      resetVersion: Date.now(),
+    })),
 }));
 
 export default useFiltersStore;

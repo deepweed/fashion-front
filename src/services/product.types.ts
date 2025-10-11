@@ -2,6 +2,8 @@ import type { Brands, Stock, TypeOf } from "@/types/product.interface";
 import type { EnergyEfficiency } from "@/types/stat.interface";
 
 export const PRODUCTS = "products";
+export const PRODUCTS_REFR = "products/belluna";
+export const PRODUCTS_HREF = "products/href";
 
 export type TypeProductFilters = {
   sort?: EnumProductSort;
@@ -23,6 +25,16 @@ export type TypeProductFilters = {
   maxArea?: string;
   energyEfficiency?: EnergyEfficiency;
   refrigerantType?: string;
+
+  // Belluna
+
+  compressorType?: string;
+  minPowerMax?: string;
+  maxPowerMax?: string;
+  minTemp?: string;
+  maxTemp?: string;
+  minCooling?: string;
+  maxCooling?: string;
 
   page?: string | number;
   perPage: string | number;

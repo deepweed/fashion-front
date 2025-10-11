@@ -2,13 +2,13 @@ import { type FC } from "react";
 
 const SkeletonLoader: FC = () => {
   return (
-    <div className="grid grid-cols-3 gap-7">
-      {Array.from({ length: 10 }).map((_, index) => (
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {Array.from({ length: 12 }).map((_, index) => (
         <div
           key={index}
-          className="animate-pulse bg-slate-700 rounded-lg h-56 w-full"
+          className="animate-pulse bg-zinc-50 rounded-2xl h-130 w-full"
         >
-          <div className="h-full w-full bg-slate-600 rounded-lg"></div>
+          <div className="h-full w-full bg-zinc-100 rounded-xl"></div>
         </div>
       ))}
     </div>

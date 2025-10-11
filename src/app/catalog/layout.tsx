@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <QueryProvider>
-      <main className="px-4 mt-10 2xl:px-0 max-w-[1440px] mx-auto">
+      <main className="px-4 mt-10 2xl:px-0 max-w-[1640px] mx-auto">
         {children}
       </main>
     </QueryProvider>

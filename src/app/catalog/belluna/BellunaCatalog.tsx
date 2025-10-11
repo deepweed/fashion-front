@@ -13,16 +13,16 @@ import type { TypePaginationProducts } from "@/types/product.interface";
 import { useQuery } from "@tanstack/react-query";
 import type { FC } from "react";
 
-interface ICatalogPage {
+interface IBellunaPage {
   defaultProducts: TypePaginationProducts;
 }
 
-export const CatalogPage: FC<ICatalogPage> = ({ defaultProducts }) => {
+export const BellunaCatalogPage: FC<IBellunaPage> = ({ defaultProducts }) => {
   const { queryParams, isFilterUpdated, updateQueryParams } = useFilters();
 
   const { data, isPending, isFetching, isLoading, isRefetching } = useQuery({
-    queryKey: ["catalog", queryParams],
-    queryFn: () => ProductService.findAll(queryParams),
+    queryKey: ["belluna catalog", queryParams],
+    queryFn: () => ProductService.findRefr(queryParams),
     initialData: defaultProducts,
     enabled: isFilterUpdated,
   });
@@ -30,8 +30,9 @@ export const CatalogPage: FC<ICatalogPage> = ({ defaultProducts }) => {
   return (
     <>
       <Heading className="mb-20 mt-20">
-        Каталог сплит-систем и кондиционеров
+        Холодильное оборудование Belluna
       </Heading>
+
       <div className="w-full h-10 bg-white border-b border-zinc-200 mb-5 lg:hidden">
         <div className="flex items-center justify-between px-4">
           <SlideFiltersWrapper />
@@ -53,11 +54,13 @@ export const CatalogPage: FC<ICatalogPage> = ({ defaultProducts }) => {
             products={data.products}
             isLoading={isPending || isFetching || isRefetching || isLoading}
           />
-          <Pagination
-            changePage={(page) => updateQueryParams("page", page.toString())}
-            currentPage={queryParams.page?.toString()}
-            numberPages={data.length / +queryParams.perPage}
-          />
+          {!data.products && (
+            <Pagination
+              changePage={(page) => updateQueryParams("page", page.toString())}
+              currentPage={queryParams.page?.toString()}
+              numberPages={data.length / +queryParams.perPage}
+            />
+          )}
         </section>
       </div>
     </>

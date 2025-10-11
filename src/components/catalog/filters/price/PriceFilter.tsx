@@ -1,31 +1,65 @@
-import { type FC } from "react";
+"use client";
 
-import Range from "@/components/ui/Range";
+import { useState, useEffect, type FC } from "react";
 
 import { useFilters } from "../../useFilters";
-import FilterWrapper from "../FilterWrapper";
+import Input from "@/components/ui/Input";
+import { useDebounce } from "@/hooks/useDebounce";
+import useFiltersStore from "@/store/catalog.store";
 
 const PriceFilter: FC = () => {
-  const { queryParams, updateQueryParams } = useFilters();
+  const { updateQueryParams, queryParams } = useFilters();
+  const { resetVersion } = useFiltersStore();
+
+  const [fromValue, setFromValue] = useState<string>(
+    queryParams.minPrice ?? ""
+  );
+  const [toValue, setToValue] = useState<string>(queryParams.maxPrice ?? "");
+  const debouncedFromValue = useDebounce(fromValue, 500);
+  const debouncedToValue = useDebounce(toValue, 500);
+
+  useEffect(() => {
+    if (debouncedFromValue !== "" && debouncedFromValue !== undefined) {
+      updateQueryParams("minPrice", debouncedFromValue);
+    }
+  }, [debouncedFromValue]);
+
+  useEffect(() => {
+    if (debouncedToValue !== "" && debouncedToValue !== undefined) {
+      updateQueryParams("maxPrice", debouncedToValue);
+    }
+  }, [debouncedToValue]);
+
+  useEffect(() => {
+    setFromValue("");
+    setToValue("");
+  }, [resetVersion]);
 
   return (
-    <FilterWrapper title="ЦЕНА">
-      <Range
-        max={1000000}
-        fromInitialValue={
-          queryParams.minPrice ? Number(queryParams.minPrice) : undefined
-        }
-        toInitialValue={
-          queryParams.maxPrice ? Number(queryParams.maxPrice) : undefined
-        }
-        onChangeFromValue={(value) =>
-          updateQueryParams("minPrice", value.toString())
-        }
-        onChangeToValue={(value) =>
-          updateQueryParams("maxPrice", value.toString())
-        }
+    <div className="flex items-center justify-between gap-x-4 mb-4">
+      <Input
+        inputMode="numeric"
+        pattern="\d*"
+        value={fromValue}
+        onChange={(e) => {
+          const onlyDigits = e.target.value.replace(/\D/g, "");
+          setFromValue(onlyDigits);
+        }}
+        className="w-1/2 h-10 bg-white border border-zinc-200 rounded-xl"
+        placeholder="От, ₽"
       />
-    </FilterWrapper>
+      <Input
+        inputMode="numeric"
+        pattern="\d*"
+        value={toValue}
+        onChange={(e) => {
+          const onlyDigits = e.target.value.replace(/\D/g, "");
+          setToValue(onlyDigits);
+        }}
+        className="w-1/2 h-10 bg-white border border-zinc-200 rounded-xl"
+        placeholder="До, ₽"
+      />
+    </div>
   );
 };
 

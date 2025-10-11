@@ -19,7 +19,7 @@ const SortDropdown: FC<IMobile> = ({ isMobile }) => {
         data={SORT_SELECT_DATA}
         onChange={(value) => updateQueryParams("sort", value.key.toString())}
         value={SORT_SELECT_DATA.find((value) => value.key === queryParams.sort)}
-        title="Сортировать"
+        title="Сортировать как"
       />
     </div>
   );

@@ -23,7 +23,7 @@ export function ProductItem({ product }: { product: IProduct }) {
     >
       <div className="flex flex-col h-full">
         {/* картинка */}
-        <div className="relative overflow-hidden aspect-[4/5] rounded-lg mb-3">
+        <div className="relative overflow-hidden aspect-[4/5] rounded-3xl mb-3">
           {/* <Image
             fill
             src="/logo.svg"
@@ -64,7 +64,7 @@ export function ProductItem({ product }: { product: IProduct }) {
         <div className="mt-auto">
           <Button
             color={product.stock === "OUT_OF_STOCK" ? "gray" : "blue"}
-            className="text-sm font-medium w-full h-10 rounded-lg"
+            className="text-base font-medium w-full h-12 rounded-full"
           >
             <ShoppingBasket size={20} strokeWidth={2.2} />
             {convertProductStock(product.stock)}

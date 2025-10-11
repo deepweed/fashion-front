@@ -19,7 +19,7 @@ export function Select<K>({
         className={
           isMobile
             ? "flex items-center gap-x-2 text-zinc-500 text-[12px] font-medium"
-            : "w-full flex items-center gap-x-2 bg-zinc-100 border border-slate-300 rounded-md shadow-sm px-3 py-2 sm:px-4 sm:py-2 font-medium text-zinc-600 hover:bg-slate-200 text-left z-10 truncate"
+            : "w-full py-3 px-5 flex items-center gap-x-2 bg-zinc-50 rounded-xl text-sm  hover:bg-slate-200 text-left z-10 truncate cursor-pointer"
         }
       >
         {title && <span className="text-zinc-500">{title}:</span>}
@@ -39,7 +39,7 @@ export function Select<K>({
             <li
               key={item.key?.toString()}
               className={cn(
-                "text-zinc-600 cursor-pointer select-none relative py-2 pl-3 pr-9"
+                "cursor-pointer select-none relative py-2 pl-3 pr-9"
               )}
               onClick={() => {
                 onChange(item);

@@ -23,7 +23,7 @@ const Button = ({
 
   const colorStyles = {
     blue: "bg-blue-600 text-white hover:bg-blue-700",
-    white: "bg-white text-black shadow",
+    white: "bg-white text-black",
     gray: "bg-zinc-200 text-black hover:bg-zinc-100",
   };
 

@@ -19,7 +19,7 @@ export function ImageSlide({ product }: { product: IProduct }) {
 
   return (
     <div
-      className="relative overflow-hidden aspect-[4/5] rounded-lg mb-3 bg-zinc-100 border border-slate-200 shadow"
+      className="relative overflow-hidden aspect-[4/5] rounded-lg mb-3 bg-zinc-50 shadow"
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setActiveIndex(0)}
     >

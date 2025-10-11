@@ -2,29 +2,31 @@
 
 import { useState, useEffect, type FC } from "react";
 
-import { useFilters } from "../../useFilters";
+import { useFilters } from "@/components/catalog/useFilters";
 import Input from "@/components/ui/Input";
 import { useDebounce } from "@/hooks/useDebounce";
 import useFiltersStore from "@/store/catalog.store";
 
-const AreaFilter: FC = () => {
+const PowerMaxFilter: FC = () => {
   const { updateQueryParams, queryParams } = useFilters();
   const { resetVersion } = useFiltersStore();
 
-  const [fromValue, setFromValue] = useState<string>(queryParams.minArea ?? "");
-  const [toValue, setToValue] = useState<string>(queryParams.maxArea ?? "");
+  const [fromValue, setFromValue] = useState<string>(
+    queryParams.minPowerMax ?? ""
+  );
+  const [toValue, setToValue] = useState<string>(queryParams.maxPowerMax ?? "");
   const debouncedFromValue = useDebounce(fromValue, 500);
   const debouncedToValue = useDebounce(toValue, 500);
 
   useEffect(() => {
     if (debouncedFromValue !== "" && debouncedFromValue !== undefined) {
-      updateQueryParams("minArea", debouncedFromValue);
+      updateQueryParams("minPowerMax", debouncedFromValue);
     }
   }, [debouncedFromValue]);
 
   useEffect(() => {
     if (debouncedToValue !== "" && debouncedToValue !== undefined) {
-      updateQueryParams("maxArea", debouncedToValue);
+      updateQueryParams("maxPowerMax", debouncedToValue);
     }
   }, [debouncedToValue]);
 
@@ -44,7 +46,7 @@ const AreaFilter: FC = () => {
           setFromValue(onlyDigits);
         }}
         className="w-1/2 h-10 bg-white border border-zinc-200 rounded-xl"
-        placeholder="От, м²"
+        placeholder="От, кВт"
       />
       <Input
         inputMode="numeric"
@@ -55,10 +57,10 @@ const AreaFilter: FC = () => {
           setToValue(onlyDigits);
         }}
         className="w-1/2 h-10 bg-white border border-zinc-200 rounded-xl"
-        placeholder="До, м²"
+        placeholder="До, кВт"
       />
     </div>
   );
 };
 
-export default AreaFilter;
+export default PowerMaxFilter;

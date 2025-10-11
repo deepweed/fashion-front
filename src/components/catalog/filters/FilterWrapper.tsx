@@ -9,8 +9,8 @@ const FilterWrapper: FC<PropsWithChildren<IFilterWrapper>> = ({
   children,
 }) => {
   return (
-    <div className="mb-6">
-      <div className="mb-3 font-semibold text-sm">{title}</div>
+    <div className="mb-3">
+      <div className="mb-3 font-semibold text-[18px]">{title}</div>
       <div>{children}</div>
     </div>
   );
