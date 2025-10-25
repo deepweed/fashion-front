@@ -1,31 +1,30 @@
+import Heading from "@/components/ui/Heading";
 import { ProductService } from "@/services/product.service";
+import type { IProduct, IProductResponse } from "@/types/product.interface";
 import { notFound } from "next/navigation";
-
-export const revalidate = 60;
-
-async function getProduct(href: string) {
-  try {
-    const data = await ProductService.findByHref({ href });
-    return data;
-  } catch (error) {
-    console.error("Ошибка при получении товара:", error);
-    return null;
-  }
-}
+import ProductPage from "./ProductPage";
 
 interface ProductPageProps {
-  params: { href: string };
+  params: {
+    href: string;
+  };
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
-  const data = await getProduct(params.href);
+export default async function Product({ params }: ProductPageProps) {
+  const { href } = await params;
 
-  if (!data) return notFound();
+  const product: IProductResponse | null = await ProductService.findByHref({
+    href: href,
+  });
+
+  if (!product) {
+    notFound();
+  }
 
   return (
-    <div>
-      <h1>{data.productName}</h1>
-      <p>{data.description}</p>
-    </div>
+    <ProductPage
+      product={product.product}
+      relatedProducts={product.relatedProducts}
+    />
   );
 }

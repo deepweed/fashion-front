@@ -24,8 +24,7 @@ export function ImageSlide({ product }: { product: IProduct }) {
       onMouseLeave={() => setActiveIndex(0)}
     >
       <Image
-        // src={product.images[activeIndex]}
-        src={"/logo.svg"}
+        src={product.images[activeIndex]}
         alt={product.title}
         fill
         className="object-contain p-4"

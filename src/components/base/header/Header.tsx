@@ -1,16 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ChevronDown,
-  Grip,
-  Phone,
-  PhoneCall,
-  ShoppingBasket,
-  ShoppingCart,
-} from "lucide-react";
+import { Phone, PhoneCall, ShoppingCart } from "lucide-react";
 import SlideHeaderMenuWrapper from "./slide-menu/SlideMenuWrapper";
 import { HEADER_LINKS } from "./header.data";
-import Button from "@/components/ui/Button";
+import Cart from "./cart/Cart";
+import PhoneCallback from "./phone-call/PhoneCall";
 
 const Header = () => {
   return (
@@ -38,17 +32,8 @@ const Header = () => {
           </nav>
         </div>
         <div className="hidden lg:flex lg:items-center lg:gap-x-10">
-          <Link className="flex items-center gap-x-3" href={"/cart"}>
-            <ShoppingBasket size={16} strokeWidth={2.5} />
-            <span className="text-sm font-semibold">КОРЗИНА</span>
-          </Link>
-          <Button
-            color="white"
-            className="px-4 h-10 rounded-2xl border border-zinc-200"
-          >
-            <Phone size={14} strokeWidth={2.4} />
-            Обратный звонок
-          </Button>
+          <Cart />
+          <PhoneCallback />
         </div>
         <div className="flex items-center gap-x-6 lg:hidden">
           <ShoppingCart size={20} strokeWidth={2.1} />

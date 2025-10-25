@@ -3,6 +3,7 @@ import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/base/header/Header";
 import { LazyMotion, domAnimation } from "framer-motion";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Inter({
   variable: "--font-inter-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
           <Header />
           {children}
         </LazyMotion>
+        <Toaster position="top-center" toastOptions={{ duration: 4000 }} />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@ import type { EnergyEfficiency } from "@/types/stat.interface";
 
 export const PRODUCTS = "products";
 export const PRODUCTS_REFR = "products/belluna";
-export const PRODUCTS_HREF = "products/href";
+export const PRODUCTS_GOODS = "products/goods";
 
 export type TypeProductFilters = {
   sort?: EnumProductSort;

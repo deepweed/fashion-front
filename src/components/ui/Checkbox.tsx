@@ -15,11 +15,9 @@ const Checkbox: FC<PropsWithChildren<ICheckbox>> = ({
 }) => {
   return (
     <button
+      type="button"
       onClick={onClick}
-      className={cn(
-        "w-full flex items-center justify-between cursor-pointer",
-        className
-      )}
+      className={"w-full flex items-center justify-between cursor-pointer"}
     >
       <span className="text-base">{children}</span>
       <span className="w-6 h-6 bg-white border border-zinc-300 rounded-md flex items-center justify-center">

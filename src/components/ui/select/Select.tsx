@@ -19,8 +19,8 @@ export function Select<K>({
         className={
           isMobile
             ? "flex items-center gap-x-2 text-zinc-500 text-[12px] font-medium"
-            : "w-full py-3 px-5 flex items-center gap-x-2 bg-zinc-50 rounded-xl text-sm  hover:bg-slate-200 text-left z-10 truncate cursor-pointer"
-        }
+            : "w-full flex items-center gap-x-2 rounded-xl text-sm text-left z-10 truncate cursor-pointer"
+        } //py-3 px-5 bg-zinc-50 hover:bg-slate-200
       >
         {title && <span className="text-zinc-500">{title}:</span>}
         <span className={isMobile ? "truncate max-w-[40px] block" : ""}>

@@ -5,6 +5,16 @@ import {
   type IRefrigeratorStat,
 } from "./stat.interface";
 
+export interface IRelatedProduct {
+  title: string;
+  href: string;
+}
+
+export interface IProductResponse {
+  product: IProduct;
+  relatedProducts?: IRelatedProduct[];
+}
+
 export interface IProduct {
   id: number;
   title: string;
