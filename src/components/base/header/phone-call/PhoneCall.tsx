@@ -62,10 +62,9 @@ const PhoneCallback = () => {
     <>
       <Button
         onClick={() => setIsPopupOpen(true)}
-        color="white"
-        className="px-4 h-10 rounded-2xl border border-zinc-200"
+        color="blue"
+        className="px-8 h-10 rounded-2xl"
       >
-        <Phone size={14} strokeWidth={2.4} />
         Обратный звонок
       </Button>
 

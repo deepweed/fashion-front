@@ -9,7 +9,10 @@ const SlideHeaderMenuWrapper = () => {
 
   return (
     <>
-      <button onClick={() => setOpen(true)}>
+      <button
+        className="p-2 bg-zinc-100 rounded-xl"
+        onClick={() => setOpen(true)}
+      >
         <Menu size={20} strokeWidth={2.1} />
       </button>
 

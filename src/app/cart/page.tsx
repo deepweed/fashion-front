@@ -4,11 +4,11 @@ import Heading from "@/components/ui/Heading";
 
 export default function CartPage() {
   return (
-    <div className="flex gap-5 mt-10">
-      <div className="w-3/4">
+    <div className="flex flex-col xl:flex-row gap-5 mt-10">
+      <div className="w-full xl:w-3/4">
         <CartItems />
       </div>
-      <div className="w-1/4">
+      <div className="w-full xl:w-1/4">
         <OrderCreate />
       </div>
     </div>

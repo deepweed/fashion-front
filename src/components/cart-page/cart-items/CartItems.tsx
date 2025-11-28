@@ -38,9 +38,9 @@ const CartItems = () => {
         {items.map((item) => (
           <div
             key={item.id}
-            className="flex items-center justify-between rounded-2xl bg-zinc-50 p-4"
+            className="flex flex-col md:flex-row md:items-center md:justify-between rounded-2xl bg-zinc-50 p-4"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 mb-4 md:md-0">
               {item.image && (
                 <div className="relative overflow-hidden ">
                   <Image

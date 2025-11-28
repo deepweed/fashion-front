@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/base/header/Header";
 import { LazyMotion, domAnimation } from "framer-motion";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/base/footer/Footer";
 
 const geistSans = Inter({
   variable: "--font-inter-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
         <LazyMotion features={domAnimation}>
           <Header />
           {children}
+          <Footer />
         </LazyMotion>
         <Toaster position="top-center" toastOptions={{ duration: 4000 }} />
       </body>

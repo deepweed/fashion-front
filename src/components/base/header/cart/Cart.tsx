@@ -10,9 +10,12 @@ const Cart = () => {
   const isCartEmpty = items.length === 0;
 
   return (
-    <Link className="flex items-center gap-x-3" href={"/cart"}>
+    <Link
+      className="flex items-center gap-x-3 text-sm font-medium hover:bg-zinc-100 px-3 py-2 rounded-md"
+      href={"/cart"}
+    >
       <ShoppingBasket size={16} strokeWidth={2.5} />
-      <span className="text-sm font-semibold">КОРЗИНА</span>
+      <span className="text-sm font-semibold">Корзина</span>
       {isCartEmpty ? null : (
         <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-red-600 text-white text-[10px] font-semibold">
           {items.length}

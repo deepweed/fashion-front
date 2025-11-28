@@ -1,0 +1,5 @@
+@reference "tailwindcss";
+
+.card {
+  @apply flex flex-wrap justify-center gap-4 mt-5;
+}

@@ -36,7 +36,7 @@ export const SlidePanel: React.FC<SlidePanelProps> = ({
 
   /* вычисляем основные классы в зависимости от позиции */
   const baseClasses =
-    "fixed bg-white shadow-xl overflow-y-auto z-40 flex flex-col";
+    "fixed bg-white shadow-xl overflow-y-auto z-50 flex flex-col";
   const positionClasses =
     position === "left"
       ? "top-0 left-0 h-screen w-[80vw] xl:w-[25vw]"
